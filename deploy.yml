@@ -1,0 +1,16 @@
+---
+apiVersion: v1
+kind: Pod
+metadata:
+  name: myfirstpod
+  namespace: test
+  labels:
+    app: web
+spec:
+  containers:
+    - name: myfirstcontainer
+      image: jenkins/jenkins:lts
+    - name: secondcontainer
+      image: nginx
+      ports:
+        - containerPort: 80

@@ -1,0 +1,41 @@
+---
+apiVersion: eksctl.io/v1alpha5
+kind: ClusterConfig
+
+metadata:
+  name: satya-cluster-1
+  region: us-west-2
+
+vpc:
+  id: vpc-04cebbd6f61a32907
+  cidr: "172.31.0.0/16"
+  subnets:
+    public:
+      public-one:
+        id: subnet-0447e9d2830a747be
+      public-two:
+        id: subnet-087c5ded0cb72805c
+      public-three:
+        id: subnet-085fefac7670f0b33
+
+managedNodeGroups:
+  - name: ngg-1
+    labels:
+      role: managed-nodes
+    minSize: 1
+    maxSize: 4
+    desiredCapacity: 1
+    instanceType: t2.medium
+    subnets:
+      - public-one
+      - public-two
+nodeGroups:
+  - name: ngg-2
+    labels:
+      role: unmanaged-nodes
+    minSize: 1
+    maxSize: 4
+    desiredCapacity: 1
+    instanceType: t2.medium
+    subnets:
+      - public-one

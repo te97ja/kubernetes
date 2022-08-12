@@ -1,0 +1,13 @@
+---
+apiVersion: v1
+kind: Pod
+metadata:
+  name: multicontainer
+  labels:
+    app: jenkinsnginx
+spec:
+  containers:
+    - name: jenkins
+      image: jenkins/jenkins:lts
+    - name: nginx
+      image: nginx:latest
