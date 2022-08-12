@@ -4,8 +4,13 @@ metadata:
   name: nginx-service
 spec:
   selector:
-    app: nginx
+    app: web
   ports:
-    - protocol: TCP
+    - name: nginx
+      protocol: TCP
       port: 8090
       targetPort: 80
+    - name: jenkins
+      protocol: TCP
+      port: 8060
+      targetPort: 8080

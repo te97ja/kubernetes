@@ -1,0 +1,19 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: jenkinsrules
+  annotations:
+    kubernetes.io/ingress.class: nginx
+    nginx.ingress.kubernetes.io/rewrite-target: /
+spec:
+  rules:
+  - host: satya.amazing.bluff
+    http:
+      paths:
+      - path: /jenkins1
+        pathType: Prefix
+        backend:
+          service:
+            name: jenkinsservice
+            port:
+              number: 8080

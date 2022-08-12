@@ -4,8 +4,9 @@ metadata:
   name: nginx-lb
 spec:
   type: LoadBalancer
+  clusterIP: 10.100.27.21
   selector:
-    app: jenkinsnginx
+    app: web
   ports:
     - name: nginx
       protocol: TCP
@@ -15,3 +16,5 @@ spec:
       protocol: TCP
       port: 8060
       targetPort: 8080
+  externalIPs:
+    - 54.184.23.185
