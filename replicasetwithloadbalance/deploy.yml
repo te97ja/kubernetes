@@ -20,4 +20,4 @@ spec:
     spec:
       containers:
         - name: nginx-container
-          image: te97ja/multistage:latest
+          image: nginx
