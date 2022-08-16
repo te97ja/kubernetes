@@ -1,0 +1,26 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: jen-deployment
+spec:
+  replicas: 4
+  selector:
+    matchLabels:
+      app: jenkins
+  template:
+    metadata:
+      name: jenkins-pod
+      labels:
+        app: jenkins
+    spec:
+      containers:
+        - name: jen-container
+          image: jenkins/jenkins:lts
+          resources:       
+            limits:
+              cpu: "0.4"
+              memory: 400mi  
+            requests:
+              cpu: "0.4" 
+              memory: 400mi
+
