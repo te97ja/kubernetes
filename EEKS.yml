@@ -25,7 +25,7 @@ managedNodeGroups:
     minSize: 1
     maxSize: 4
     desiredCapacity: 1
-    instanceType: t2.medium
+    instanceType: t2.micro
     subnets:
       - public-one
       - public-two
@@ -36,6 +36,6 @@ nodeGroups:
     minSize: 1
     maxSize: 4
     desiredCapacity: 1
-    instanceType: t2.medium
+    instanceType: t2.micro
     subnets:
       - public-one
